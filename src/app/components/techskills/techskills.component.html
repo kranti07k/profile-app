@@ -1,0 +1,12 @@
+<div class="card mt-2" *ngFor="let skill of techSkills">
+  <div class="card-header">
+    {{ skill.skillName}}
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col" *ngFor="let tech of skill.technology">
+        <app-skill-card [technology]="tech"></app-skill-card>
+      </div>
+    </div>
+  </div>
+</div>

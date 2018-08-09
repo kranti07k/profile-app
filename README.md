@@ -9,6 +9,21 @@ This project is to create my profile using Angular features.
     c. Install font awesome npm install @fortawesome/fontawesome-free
 
 
-    d. After installing refer the requiredd files (bootstrap.min.css, popper.min.js, jquery.min.js and bootstrap.min.js files in angular.json config file respective sections[styles, scripts]).
+    d. After installing refer the requiredd files (bootstrap.min.css,all.min.css(fontawesome) popper.min.js, jquery.min.js and bootstrap.min.js files in angular.json config file respective sections[styles, scripts]).
 
+
+1. Fetching Data:
+
+Best Practice:
+
+    User Route Resolvers to Prefecth the data.
+
+    See the code in TechSkillsComponent:
+        This component Interact with techskills service, which provides an Observable and techskills resolver registered with
+        router will resolve the data and makes  it available in activated route.
+
+    Seperate Modules:
+        1. Routing and Post a Job are two seperate modules.
+
+    Post a Job , created a form using reactive forms.
     
