@@ -1,6 +1,6 @@
 # ProfileApp
 
-This project is to create my profile using Angular features.
+This project is to create my profile using Angular features. This is initail draft started working on 09/Aug/2018 for a POC.
 
 1. Installing Bootstrap and font awesome
     a. Bootstrap requires JQuery and Popper.js, Install thesse two libraries using npm
@@ -24,6 +24,8 @@ Best Practice:
 
     Seperate Modules:
         1. Routing and Post a Job are two seperate modules.
+        2. Used Lazy Loading
 
     Post a Job , created a form using reactive forms.
+    1. Used FormBuilder, FormArrays.
     
