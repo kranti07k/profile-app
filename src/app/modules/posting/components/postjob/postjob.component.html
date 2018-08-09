@@ -1,3 +1,120 @@
 <div class="container">
-<h1>Post the Job111</h1>
+    <h1>Post the Job</h1>
+    <form [formGroup]="postJobFrom" (ngSubmit)="submit()">
+
+        <div class="row" formGroupName="recruiter">
+            <div col="8">
+                <div class="row">
+                    <div class="col labelCSS">
+                        <label for="recruiterName">Recruiter Name:</label>
+                        <span class="requiredClass">*</span>
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" id="recruiterName" placeholder="Recruiter Name" formControlName="recruiterName">
+                    </div>
+                </div>
+                <div class="row error-message text-right" *ngIf="!isValidrecruiterName()">
+                    Recruiter Name required
+                </div>
+
+                <div class="row">
+                    <div class="col labelCSS">
+                        <label for="mobileNumber">Mobile Number:</label>
+                        <span class="requiredClass">*</span>
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" id="mobileNumber" placeholder="Mobile Number" formControlName="mobileNumber">
+                    </div>
+                </div>
+                <div class="row error-message text-right" *ngIf="!isValidMobileNumber()">
+                    Mobile Number required
+                </div>
+                <div class="row">
+                    <div class="col labelCSS">
+                        <label for="emailId">Email ID:</label>
+                        <span class="requiredClass">*</span>
+                    </div>
+                    <div class="col">
+                        <input type="email" class="form-control" id="emailId" placeholder="Email ID" formControlName="emailId">
+                    </div>
+                </div>
+                <div class="row error-message text-right" *ngIf="!isValidEmailId()">
+                    Please enter valid email ID
+                </div>
+            </div>
+
+        </div>
+        <div class="text-right">
+            <button type="button" (click)="addJob()">Add Job</button>
+        </div>
+        <div class="row">
+            <table>
+                <thead>
+                    <tr class="mat-header-row">
+                        <th>
+                            S.No
+                        </th>
+                        <th>
+                            Job Title
+                            <span class="requiredClass">*</span>
+                        </th>
+                        <th>
+                            Location
+                            <span class="requiredClass">*</span>
+                        </th>
+                        <th>
+                            Client
+                            <span class="requiredClass">*</span>
+                        </th>
+                        <th>
+                            Rate (Hourly)
+                            <span class="requiredClass">*</span>
+                        </th>
+                        <th>
+                            Action
+                        </th>
+                    </tr>
+                </thead>
+                <tbody formArrayName="jobDetails">
+                    <tr [formGroupName]="i" *ngFor="let job of jobDetails.controls;let i =index">
+                        <td>
+                            {{i+1}}
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" formControlName="jobTitle" placeholder="Job Title">
+                            <div class="error-message text-right" *ngIf="!isJobTitleValid(i)">
+                                Title required
+                            </div>
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" formControlName="jobLocation" placeholder="Job Location">
+                            <div class="error-message text-right" *ngIf="!isLocationValid(i)">
+                                Location required
+                            </div>
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" formControlName="client" placeholder="client">
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" formControlName="rate" placeholder="rate">
+                            <div class="error-message text-right" *ngIf="!isRateValid(i)">
+                                Rate required
+                            </div>
+                        </td>
+                        <td>
+                            <button type="button" (click)="removeJob(i)">Remove Job</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="row justify-content-center pt-2 pb-2 bordr-top text-center">
+            <div class="p-2">
+                <button type="submit" [disabled]="!isFormValid()" class="btn btn-endhan m-2">Submit</button>
+                <button type="button" class="btn btn-secondary mr-2" (click)="resetForm()">Cancel</button>
+            </div>
+        </div>
+
+
+    </form>
 </div>

@@ -1,0 +1,17 @@
+.requiredClass{
+    color:red;
+}
+
+.labelCSS{
+    text-align: right;
+    font-weight: bold;
+}
+
+.error-message{
+    color: red;
+}
+
+.row{
+    margin: 5px;
+    text-align: center;
+}
